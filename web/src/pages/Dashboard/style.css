@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    
+}
+.container{
+    max-width: 480px;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    background-color: lightblue;
+}
+
+header {
+    padding: 10px 0;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: center;
+}
+
+.card {
+    margin-bottom: 10px;
+    background-color: #C5B4E3;
+    padding: 10px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
