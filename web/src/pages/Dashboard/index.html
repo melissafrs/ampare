@@ -14,27 +14,39 @@
 <body>
     <div class="container">
         <header>
-            <h1>Nome + logo</h1>
-            <h2>Oi,<br/>{Fulano}</h2>
+            <div class="logo">Nome + logo</div>
+            <h1>oi,<br/>{Fulano}!</h1>
         </header>
         <main>
             <div class="carousel">
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <a href="../Food/index.html">
-                            <div class="card">icon<br/>Cestas</div>
-                        </a>
+                    <div class="item" onclick="window.location='../Food/index.html'">
+                        <p>icon<br/>cestas</p>
+                    </div>
+                    <div class="item" onclick="window.location='../Family/index.html'">
+                        <p>icon<br/>famíliass</p>
                     </div>
                     <div class="item">
-                        <a href="">
-                            <div class="card">icon<br/>Família</div>
-                        </a>
+                        <p>icon<br/>doações</p>
                     </div>
-                    <div class="item">
-                        <a href="">
-                            <div class="card">icon<br/>Doações</div>
-                        </a>
-                    </div>
+                </div>
+            </div>
+
+            <div class="notifications">
+                <div class="notification" onclick="window.location='../Delivery/index.html';">
+                    <h1>entrega</h1>
+                    <div class="hora">icon + hora</div>
+                    <p>endereço</p>
+                </div>
+                <div class="notification">
+                    <h1>entrega</h1>
+                    <div class="hora">icon + hora</div>
+                    <p>endereço</p>
+                </div>
+                <div class="notification">
+                    <h1>entrega</h1>
+                    <div class="hora">icon + hora</div>
+                    <p>endereço</p>
                 </div>
             </div>
         </main>
