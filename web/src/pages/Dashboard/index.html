@@ -4,24 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Início</title>
+
+    <!--owl css-->
+    <link rel="stylesheet" href="./style/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="./style/owl/owl.theme.default.min.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Nome + logo</h1>
+            <h2>Oi,<br/>{Fulano}</h2>
         </header>
         <main>
-            <a href="../Food/index.html">
-                <div class="card">
-                    <p>icon Card Alimentos</p>
+            <div class="carousel">
+                <div class="owl-carousel owl-theme">
+                    <a href="../Food/index.html">
+                        <div class="item">
+                            <div class="card">icon Cestas</div>
+                        </div>
+                    </a>
+                    <div class="item">
+                        <div class="card">icon Família</div>
+                    </div>
+                    <div class="item">
+                        <div class="card">icon Doações</div>
+                    </div>
                 </div>
-            </a>
-            <div class="card">
-                <p>icon Card Famílias</p>
             </div>
         </main>
     </div>
+
+    <script src="js/owl/jquery.min.js"></script>
+    <script src="js/owl/owl.carousel.min.js"></script>
+    <script src="js/owl/setup.js"></script>
 </body>
 </html>
