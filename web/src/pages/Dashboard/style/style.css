@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Londrina Solid', cursive;
 }
 
 .container{
@@ -27,10 +27,26 @@ header {
 header .logo {
     width: 100%;
     margin: 8px 16px;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+header .logo #logo-name {
+    width: 35%;
+
+}
+
+header .logo #logo-hand {
+    width: 20%;
+    margin-left: auto;
+
 }
 
 header h1 {
     color: white;
+    font-size: 75px;
     margin: 16px 32px 96px;
 }
 
@@ -75,4 +91,27 @@ main .notifications .notification {
     margin: 16px 32px;
     padding: 24px;
     border-radius: 24px;
+}
+
+main .notifications .notification h1 {
+    color: #4E008E;
+    font-size: 70px;
+} 
+
+main .notifications .notification p {
+    color: #766E6E;
+    font-size: 25px;
+} 
+
+main .notifications .notification .hora {
+    display: inline-block;
+ }
+
+main .notifications .notification .hora img {
+   width: 7%;
+}
+
+main .notifications .notification .hora h2 {
+    color: #766E6E;
+    font-size: 45px;
 }
