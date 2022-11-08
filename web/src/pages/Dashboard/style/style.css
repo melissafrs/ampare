@@ -82,36 +82,68 @@ main .notifications {
     flex-direction: column;
 }
 
+main .notifications .alert {
+
+}
+
+main .notifications .date-alert {
+    width: 20%;
+    background-color: #4E008E;
+    border-radius: 48px;
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+main .notifications .date-alert h1 {
+    color: #ffe400;
+    font-size: 48px;
+    text-align: center;
+}
+
+
 main .notifications .notification {
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0px 24px 24px 24px;
     background-color: #D9D9D9;
     margin: 16px 32px;
-    padding: 24px;
     border-radius: 24px;
 }
 
+
 main .notifications .notification h1 {
     color: #4E008E;
-    font-size: 70px;
+    font-size: 76px;
 } 
 
 main .notifications .notification p {
     color: #766E6E;
     font-size: 25px;
-} 
+
+}
+
+main .notifications .notification .info {
+    padding: 20px 15px;
+    position: relative;
+    top: 54px;
+}
 
 main .notifications .notification .hora {
+    align-items: center;
     display: flex;
-    justify-content: space-between;
-    padding: 2px 2px;
+    justify-content: flex-start;
  }
 
 main .notifications .notification .hora .fa-clock {
-   width: 150px;
    color: #766E6E;
+   font-size: 2.6em;
 }
 
 main .notifications .notification .hora h2 {
     color: #766E6E;
-    font-size: 45px;
+    font-size: 70px;
+    padding-left: 5px;
 }
+
