@@ -1,26 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-body {
-    font-family: 'Londrina Solid', cursive;
-}
-
-.container{
-    max-width: 620px;
-    width: 100%;
-    height: auto;
-    margin: auto;
-    background-color: #f1f1f1;
-}
-
 header {
-    background-color: #4E008E;
-    display: flex;
-    flex-direction: column;
     border-bottom-left-radius: 40px;
 }
 
