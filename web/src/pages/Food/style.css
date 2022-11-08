@@ -18,18 +18,33 @@ body {
 }
 
 header {
-    padding: 24px 16px;
-    color: rgb(153, 0, 255);
+    background-color: #4E008E;
+    display: inline-block;
+    flex-direction: column;
+    padding: 5px 16px;
+}
+
+header .main-header {
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
 }
 
 main {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: space-between;
 }
 
-header img {
+header .main-header img {
     width: 15%;
+}
+
+header .main-header .back-arrow {
+    position: absolute;
+    display: inline;
+    align-self: center;
+    width: 6%;
 }
 
 .card {
@@ -53,6 +68,10 @@ header img {
 .card:hover {
     cursor: pointer;
     filter: brightness(103%);
+}
+
+.back-arrow:hover {
+    cursor: pointer;
 }
 
 .card .logo img {
