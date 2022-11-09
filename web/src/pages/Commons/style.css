@@ -9,7 +9,7 @@ body {
     font-family: 'Londrina Solid', cursive;
 }
 
-.container{
+.container {
     max-width: 620px;
     width: 100%;
     height: auto;
@@ -21,4 +21,12 @@ header {
     background-color: #4E008E;
     display: flex;
     flex-direction: column;
+}
+
+.back-arrow:hover {
+    cursor: pointer;
+}
+
+.fa-solid {
+    color: #ffe400;
 }
