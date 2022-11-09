@@ -101,33 +101,33 @@ header .main-header img {
 }
 
 table {
-    border-collapse: collapse;
     margin: 0;
     padding: 0;
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
+    align-self: center;
 }
 
 table tr {
-    padding: .35em;
+    padding: .0em;
   }
   
 table th, table td {
-    padding: .3em;
-    font-size: 1.3em;
+    padding: 0;
+    font-size: 1.1em;
     text-align: center;
     color: #938C8C;
 }
   
 table th {
-    font-size: 1.8em;
+    font-size: 1.3em;
     color: #766E6E;
 }
 
 .table {
     display: block;
     align-items: center;
-    max-width: 556px;
+    max-width: 326px;
     overflow-y: hidden; /* Hide horizontal scrollbar */
     overflow-x: scroll;
 }
