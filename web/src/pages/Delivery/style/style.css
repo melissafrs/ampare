@@ -2,6 +2,11 @@
     display: block;
 }
 
+ol {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
 .cesta {
     box-shadow: none;
     margin:0;
