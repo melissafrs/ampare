@@ -127,8 +127,8 @@ table th {
     display: block;
     align-items: center;
     max-width: 90%;
-    overflow-y: hidden; /* Hide horizontal scrollbar 
-    overflow-x: scroll;*/
+    overflow-y: hidden; /* Hide horizontal scrollbar */
+    overflow-x: scroll;
 }
 
 table caption {
