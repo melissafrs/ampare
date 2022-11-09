@@ -5,3 +5,13 @@
 .cesta {
     box-shadow: none;
 }
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.button .icon, button h1{
+    padding: .1em;
+}
