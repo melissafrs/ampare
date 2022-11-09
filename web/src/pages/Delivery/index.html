@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="clock button" onclick=""> <!--https://calendar.google.com/calendar/u/0/r/day/2022/25/11?pli=1-->
+                <div class="clock button" onclick="confirmar('https://calendar.google.com/calendar/u/0/r/day/2022/25/11?pli=1', 'Deseja marcar essa data na sua agenda Google?')">
                     <i class="fa-solid fa-clock fa-lg icon"></i>
                     <h1>lembrete</h1>
                 </div>
@@ -91,6 +91,15 @@
         </main>
         <footer></footer>
     </div>
-    
 </body>
+<script>
+    function confirmar(url, msg){
+            
+            event.preventDefault();  
+            var resposta = confirm(msg);
+            if (resposta == true){
+                top.location.href = url;
+            }
+        } 
+</script>
 </html>
