@@ -55,73 +55,88 @@ main .carousel .item:hover {
     filter: brightness(103%);
 }
 
-main .notifications {
+main .alerts-container {
+    
+}
+
+
+main .alerts-container .alert  {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0px 24px 24px 24px;
+    background-color: #D9D9D9;
+    margin: 32px;
+    border-radius: 24px;
+    align-self: flex-end;
 }
 
-main .notifications .alert {
-
+main .alerts-container .alert .date-alert-container {
+    width: 100%;
+    margin-top: -20px;
+    margin-right: 0px;
 }
 
-main .notifications .date-alert {
-    width: 20%;
+
+main .alerts-container .alert .date-alert-container .date-alert {
+    width: 30%;
     background-color: #4E008E;
     border-radius: 48px;
-    position: relative;
-    left: 0px;
-    top: 0px;
+    margin-left: 70%;
 }
 
-main .notifications .date-alert h1 {
+main .alerts-container .alert .date-alert-container .date-alert h1 {
     color: #ffe400;
-    font-size: 48px;
+    font-size: 32px;
     text-align: center;
 }
 
-
-main .notifications .notification {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0px 24px 24px 24px;
-    background-color: #D9D9D9;
-    margin: 16px 32px;
-    border-radius: 24px;
+main .alerts-container .alert .hour-alert {
+    flex: 1;
 }
 
-
-main .notifications .notification h1 {
+main .alerts-container .alert .hour-alert h1 {
     color: #4E008E;
-    font-size: 76px;
-} 
-
-main .notifications .notification p {
-    color: #766E6E;
-    font-size: 25px;
-
+    font-size: 48px;
+    margin-top: -15px;
 }
 
-main .notifications .notification .info {
-    padding: 20px 15px;
-    position: relative;
-    top: 54px;
-}
-
-main .notifications .notification .hora {
+main .alerts-container .alert .hour-alert .hour {
     align-items: center;
     display: flex;
     justify-content: flex-start;
- }
-
-main .notifications .notification .hora .fa-clock {
-   color: #766E6E;
-   font-size: 2.6em;
 }
 
-main .notifications .notification .hora h2 {
+main .alerts-container .alert .hour-alert .fa-clock {
     color: #766E6E;
-    font-size: 70px;
-    padding-left: 5px;
+    font-size: 2em;
+}
+ 
+main .alerts-container .alert .hour-alert .hour h2 {
+     color: #766E6E;
+     font-size: 32px;
+     padding-left: 5px;
 }
 
+main .alerts-container .alert .info-alert {
+    flex: 1;
+    padding-left: 8px;
+}
+
+main .alerts-container .alert .info-alert h2 {
+    color: #766E6E;
+    font-size: 22px;
+    text-align: right;
+}
+
+main .alerts-container .alert .info-alert p {
+    color: #766E6E;
+    font-size: 16px;
+    text-align: right;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+}
