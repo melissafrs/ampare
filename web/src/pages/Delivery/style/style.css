@@ -15,3 +15,7 @@
 .button .icon, button h1{
     padding: .1em;
 }
+
+.clock, .check {
+    width: 40%;
+}
