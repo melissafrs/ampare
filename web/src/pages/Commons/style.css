@@ -85,7 +85,7 @@ header .main-header img {
     background-color: #4E008E;
     border-radius: 48px;
     padding: 12px;
-
+    margin-left: 37.5%;
 }
 
 .button h1 {
@@ -98,6 +98,7 @@ header .main-header img {
 .card .details-table {
     align-items: center;
 }
+
 table {
     border-collapse: collapse;
     margin: 0;
