@@ -97,6 +97,7 @@ header .main-header img {
 
 .card .details-table {
     align-items: center;
+    width: 100%;
 }
 
 table {
@@ -127,7 +128,8 @@ table th {
     display: block;
     align-items: center;
     max-width: 556px;
-    width: 100%;
+    overflow-y: hidden; /* Hide horizontal scrollbar */
+    overflow-x: scroll;
 }
 
 table caption {
