@@ -126,7 +126,7 @@ table th {
 .table {
     display: block;
     align-items: center;
-    max-width: 326px;
+    max-width: 90%;
     overflow-y: hidden; /* Hide horizontal scrollbar */
     overflow-x: scroll;
 }
