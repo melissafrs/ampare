@@ -1,8 +1,5 @@
-import Entity
-import DBConnection
-
-aliment = Alimento.loadFromId('1')
-print(aliment)
+from entity import Entity
+from dbconnection import DBConnection
 
 class Alimento(Entity):
     table_name = 'Alimento'
@@ -14,8 +11,10 @@ class Alimento(Entity):
         self.data_validade = data_validade
 
     @staticmethod
-    def loadFromId(self, id):
-        query = """SELECT * FROM {table_name} WHERE id = {id}"""
+    def loadFromId(id):
+        query = f"""SELECT * FROM Alimento WHERE id = {id}"""
         row = DBConnection().executeQuery(query).fetchone()
+        if not row:
+            raise Exception("Alimento com id "+ id + " não está cadastrado.")
         return Alimento(row.id, row.cesta_id, row.tipo_alimento_id, row.data_validade)
 
