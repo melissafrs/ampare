@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./web/src/pages/lib/Database",
+        "./web/src/pages/lib/Entity",
+        "./web/src/pages/lib/Model/Database"
+    ]
+}
