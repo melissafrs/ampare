@@ -9,12 +9,10 @@ class Familia(Entity):
         self.id = id
         self.nome = nome
         self.tamanho = tamanho
-        self.ultima_entrega = ultima_entrega
-        self.proxima_entrega = proxima_entrega
         self.endereco = endereco
 
     def __str__ (self):
-        return f"""Familia: [{self.id}, {self.nome}, {self.tamanho}, {self.ultima_entrega}, {self.proxima_entrega}, {self.endereco}"""
+        return f"""Familia: [{self.id}, {self.nome}, {self.tamanho}, {self.endereco}"""
 
     @staticmethod
     def loadFromId(id):
@@ -22,7 +20,7 @@ class Familia(Entity):
         row = DBConnection().executeQuery(query).fetchone()
         if not row:
             raise Exception("Familia com id "+ id + " não está cadastrado.")
-        return Familia(row.id, row.nome, row.tamanho, row.ultima_entrega, row.proxima_entrega, row.endereco)
+        return Familia(row.id, row.nome, row.tamanho, row.endereco)
     
     @staticmethod
     def loadAllEntities():
