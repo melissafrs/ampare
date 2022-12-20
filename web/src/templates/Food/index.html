@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Food/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
+    <title>Alimentos</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="main-header">
+                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='/'"></i>
+                <img class="logo" src="../img/white-logo.png" alt="logo" onclick="window.location='/'">
+            </div>
+        </header>
+        <main>
+            <ol class="list" id="foodList">
+                    <li class="card" onclick="window.location='./details.html'">
+                        <div class="info">
+                            <h1>#001</h1>
+                            <div class="details">
+                                <p>família Santos</p>
+                                <p>data de entrega: 25/10/22</p>
+                                <p>peso: 15kg</p>
+                            </div>
+                        </div>
+                        <img class="logo" src="../img/cesta.png" alt="cesta">
+                    </li>
+                    <li class="card" onclick="window.location='./details.html'">
+                        <div class="info">
+                            <h1>#002</h1>
+                            <div class="details">
+                                <p>família Palmeiras</p>
+                                <p>data de entrega: 25/10/22</p>
+                                <p>peso: 15kg</p>
+                            </div>
+                        </div>
+                        <img class="logo" src="../img/cesta.png" alt="cesta">
+                    </li>
+                    <li class="card" onclick="window.location='./details.html'">
+                        <div class="info">
+                            <h1>#003</h1>
+                            <div class="details">
+                                <p>família Moraes</p>
+                                <p>data de entrega: 25/10/22</p>
+                                <p>peso: 15kg</p>
+                            </div>
+                        </div>
+                        <img class="logo" src="../img/cesta.png" alt="cesta">
+                    </li>
+                </ol>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

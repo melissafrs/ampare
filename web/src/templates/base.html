@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Dashboard/style/style.css')}}">
+    <title>Início</title>
+
+    <!--owl css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='owl.theme.default.min.css')}}">
+    <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    {% block conteudo %}
+    {% endblock %}
+</body>
+</html>

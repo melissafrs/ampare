@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
+    <title>Famílias</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="main-header">
+                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='/'"></i>
+                <img class="logo" src="{{ url_for('static', filename='img/white-logo.png') }}" alt="logo" onclick="window.location='/'">
+            </div>
+        </header>
+        <main>
+            <ol class="list">
+                <li class="card" onclick="window.location='/family-details'">
+                    <div class="info">
+                        <h1>#001</h1>
+                        <div class="details">
+                            <p>Santos</p>
+                            <p>próxima entrega: 25/10/22</p>
+                            <p>rua dos alfeneiros, 4</p>
+                        </div>
+                    </div>
+                    <img class="logo" src="{{ url_for('static', filename='img/familia.png') }}" alt="familia">
+                </li>
+            </ol>
+        </main>
+        <button class="button" onclick="window.location='./addFamily.html'" style="position:fixed; bottom:25px; margin-left:50%; cursor:pointer; 
+        border-radius: 50px; width:70px; height:70px"><h1>+</h1></button>
+        <footer></footer>
+    </div>
+</body>
+</html>
