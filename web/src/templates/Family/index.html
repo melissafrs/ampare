@@ -10,17 +10,19 @@
         </header>
         <main>
             <ol class="list">
-                <li class="card" onclick="window.location='/family-details'">
-                    <div class="info">
-                        <h1>#001</h1>
-                        <div class="details">
-                            <p>Santos</p>
-                            <p>próxima entrega: 25/10/22</p>
-                            <p>rua dos alfeneiros, 4</p>
+                {% for familia in familias %}
+                    <li class="card" onclick="window.location='/family-details'">
+                        <div class="info">
+                            <h1>#00{{familia.id}}</h1>
+                            <div class="details">
+                                <p>{{familia.nome}}</p>
+                                <p>próxima entrega: {{familia.proxima_entrega}}</p>
+                                <p>{{familia.endereco}}</p>
+                            </div>
                         </div>
-                    </div>
-                    <img class="logo" src="{{ url_for('static', filename='img/familia.png') }}" alt="familia">
-                </li>
+                        <img class="logo" src="{{ url_for('static', filename='img/familia.png') }}" alt="familia">
+                    </li>
+                {% endfor %}
             </ol>
         </main>
         <button class="button" onclick="window.location='./addFamily.html'" style="position:fixed; bottom:25px; margin-left:50%; cursor:pointer; 
