@@ -1,4 +1,5 @@
 from entity import Entity
+from flask import Flask
 from dbconnection import DBConnection
 
 class Alimento(Entity):
