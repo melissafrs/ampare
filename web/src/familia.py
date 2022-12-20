@@ -5,7 +5,7 @@ from dbconnection import DBConnection
 class Familia(Entity):
     table_name = 'Familia'
 
-    def __init__(self, id, nome, tamanho, ultima_entrega, proxima_entrega, endereco):
+    def __init__(self, id, nome, tamanho, endereco):
         self.id = id
         self.nome = nome
         self.tamanho = tamanho

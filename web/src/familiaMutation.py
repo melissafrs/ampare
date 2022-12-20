@@ -14,3 +14,20 @@ class FamiliaMutation:
     def delete(self, familia_id):
         query = self.queryDelete(familia_id)
         self.execute(query)
+
+
+
+    def queryInsert(self, nome, tamanho, endereco):
+        return f"""INSERT INTO Familia(id, nome, tamanho, endereco)
+        VALUES(NULL,  {nome}, {tamanho}, {endereco})
+        """
+    
+    def queryDelete(self, familia_id):
+        return f"""DELETE FROM Familia WHERE id = {familia_id}"""
+
+    def queryUpdate(self, familia_id, field_name, data):
+        return f"""UPDATE Familia SET {field_name} = '{data}' WHERE id = {familia_id}"""
+
+    def persist(self, query, rows_affected):
+        if rows_affected.rowcount != 1:
+            raise Exception('Falha ao executar cadastro ', query)
