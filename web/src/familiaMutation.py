@@ -15,8 +15,6 @@ class FamiliaMutation:
         query = self.queryDelete(familia_id)
         self.execute(query)
 
-
-
     def queryInsert(self, nome, tamanho, endereco):
         return f"""INSERT INTO Familia(id, nome, tamanho, endereco)
         VALUES(NULL,  {nome}, {tamanho}, {endereco})

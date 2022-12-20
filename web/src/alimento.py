@@ -1,5 +1,4 @@
 from entity import Entity
-import json
 from dbconnection import DBConnection
 
 class Alimento(Entity):
@@ -29,8 +28,4 @@ class Alimento(Entity):
         if not rows:
             raise Exception("Não conseguiu carregar Alimentos")
         
-        alimentos = []
-        for row in rows:
-            alimentos.append(list(row))
-
-        return json.dumps(alimentos)
+        return rows
