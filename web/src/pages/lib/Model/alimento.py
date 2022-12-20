@@ -1,4 +1,5 @@
 from entity import Entity
+import json
 from dbconnection import DBConnection
 
 class Alimento(Entity):
@@ -10,6 +11,9 @@ class Alimento(Entity):
         self.tipo_alimento_id = tipo_alimento_id
         self.data_validade = data_validade
 
+    def __str__ (self):
+        return f"""Alimento: [{self.id}, {self.cesta_id}, {self.tipo_alimento_id}, {self.data_validade}"""
+
     @staticmethod
     def loadFromId(id):
         query = f"""SELECT * FROM Alimento WHERE id = {id}"""
@@ -17,4 +21,16 @@ class Alimento(Entity):
         if not row:
             raise Exception("Alimento com id "+ id + " não está cadastrado.")
         return Alimento(row.id, row.cesta_id, row.tipo_alimento_id, row.data_validade)
+    
+    @staticmethod
+    def loadAllEntities():
+        query = f"""SELECT * FROM Alimento"""
+        rows = DBConnection().executeQuery(query).fetchall()
+        if not rows:
+            raise Exception("Não conseguiu carregar Alimentos")
+        
+        alimentos = []
+        for row in rows:
+            alimentos.append(list(row))
 
+        return json.dumps(alimentos)

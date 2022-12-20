@@ -1,5 +1,6 @@
 from entity import Entity
 from dbconnection import DBConnection
+import json
 
 class Cesta(Entity):
     table_name = 'Cesta'
@@ -17,4 +18,17 @@ class Cesta(Entity):
         if not row:
             raise Exception("Cesta com id "+ id + " não está cadastrada.")
         return Cesta(row.id, row.id_familia, row.status, row.entrega_id)
+
+    @staticmethod
+    def loadAllEntities():
+        query = f"""SELECT * FROM Cesta"""
+        rows = DBConnection().executeQuery(query).fetchall()
+        if not rows:
+            raise Exception("Não conseguiu carregar Cestas")
+        
+        cestas = []
+        for row in rows:
+            cestas.append(list(row))
+
+        return json.dumps(cestas)
 
