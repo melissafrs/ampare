@@ -10,40 +10,20 @@
         </header>
         <main>
             <ol class="list" id="foodList">
+                {% for cesta in cestas %}
                     <li class="card" onclick="window.location='#'">
                         <div class="info">
-                            <h1>#001</h1>
+                            <h1>#{{cesta.id}}</h1>
                             <div class="details">
-                                <p>família Santos</p>
-                                <p>data de entrega: 25/10/22</p>
-                                <p>peso: 15kg</p>
+                                <p>família {{cesta.family}}</p>
+                                <p>data de entrega: {{cesta.data}}</p>
+                                <p>peso: {{cesta.peso}}</p>
                             </div>
                         </div>
                         <img class="logo" src="{{ url_for('static', filename='/img/cesta.png')}}" alt="cesta">
                     </li>
-                    <li class="card" onclick="window.location='#'">
-                        <div class="info">
-                            <h1>#002</h1>
-                            <div class="details">
-                                <p>família Palmeiras</p>
-                                <p>data de entrega: 25/10/22</p>
-                                <p>peso: 15kg</p>
-                            </div>
-                        </div>
-                        <img class="logo" src="{{ url_for('static', filename='/img/cesta.png')}}" alt="cesta">
-                    </li>
-                    <li class="card" onclick="window.location='#'">
-                        <div class="info">
-                            <h1>#003</h1>
-                            <div class="details">
-                                <p>família Moraes</p>
-                                <p>data de entrega: 25/10/22</p>
-                                <p>peso: 15kg</p>
-                            </div>
-                        </div>
-                        <img class="logo" src="{{ url_for('static', filename='/img/cesta.png')}}" alt="cesta">
-                    </li>
-                </ol>
+                {% endfor %}
+            </ol>
         </main>
         <footer></footer>
     </div>

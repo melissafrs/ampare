@@ -26,9 +26,5 @@ class Cesta(Entity):
         if not rows:
             raise Exception("Não conseguiu carregar Cestas")
         
-        cestas = []
-        for row in rows:
-            cestas.append(list(row))
-
-        return json.dumps(cestas)
+        return rows
 

@@ -8,7 +8,7 @@ class FamiliaMutation:
         self.connection = DBConnection()
     
     def register(self, nome, tamanho, proxima_entrega, endereco):
-        query = self.queryInsert(nome, tamanho, ultima_entrega, proxima_entrega, endereco)
+        query = self.queryInsert(nome, tamanho, proxima_entrega, endereco)
         self.execute(query)
 
     def delete(self, familia_id):

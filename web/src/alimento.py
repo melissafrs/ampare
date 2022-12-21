@@ -29,3 +29,12 @@ class Alimento(Entity):
             raise Exception("Não conseguiu carregar Alimentos")
         
         return rows
+    
+    @staticmethod
+    def loadAllEntitiesForCesta(id):
+        query = f"""SELECT * FROM Alimento WHERE cesta_id ={id}"""
+        rows = DBConnection().executeQuery(query).fetchall()
+        if not rows:
+            raise Exception("Não conseguiu carregar Alimentos")
+        
+        return rows
