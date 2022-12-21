@@ -1,9 +1,10 @@
 from alimento import Alimento
 import pyodbc
 from entrega import Entrega
+from alerts import Alerts
 from datetime import date
 
-todos = Entrega.loadAllEntitiesForDate(date.today())
+todos = Alerts.loadEntregas(date.today())
 
 print(todos)
 

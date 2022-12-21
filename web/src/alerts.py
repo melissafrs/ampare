@@ -9,7 +9,7 @@ class Alerts:
     
     @staticmethod
     def loadEntregas():
-        ealerts = Entrega.loadAllEntitiesForDate(date.today())
+        ealerts = Entrega.loadAllEntitiesSinceDate(date.today())
         alers = []
         for ealert in ealerts:
             data = Alerts.getDateFormatted(ealert.data)
