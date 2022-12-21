@@ -45,8 +45,15 @@
                     </div>
                 </div>
             </div>
-
-            <a href="/update-family/{{familia.id}}">Atualizar</a>
+            <div class="buttons">
+                <div class="clock button" onclick="window.location.href='/update-family/{{familia.id}}';">
+                    <h1>atualizar</h1>
+                </div>
+                <div class="check button" onclick="window.location.href='/update-family/{{familia.id}}';">
+                    <i class="fa-solid fa-x fa-lg icon"></i>
+                    <h1>deletar</h1>
+                </div>
+            </div>
         </main>
         <footer></footer>
     </div>
