@@ -19,4 +19,4 @@ class CadastrarFamilia:
     def toType(self):
         self.nome= str(self.nome)
         self.tamanho = int(self.tamanho)
-        self.nome= str(self.endereco)
+        self.endereco= str(self.endereco)

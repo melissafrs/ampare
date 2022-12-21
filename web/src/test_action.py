@@ -20,7 +20,7 @@ def food():
     cestas = CestaAction.loadData()
     return render_template("Food/index.html", cestas = cestas)
 
-@app.route("/family", methods=['GET'])
+@app.route("/family", methods=['GET', 'POST'])
 def family():
     familias = Familia.loadAllEntities()
     return render_template("Family/index.html", familias = familias)
@@ -35,11 +35,11 @@ def familyDetails(id):
 def addFamily():
     if request.method == 'POST':
         name = request.form['fname']
-        nmembers = request.form['nmembers']
-        sname = request.form['sname']
-        cf = CadastrarFamilia(name, nmembers, sname)
+        members = request.form['nmembers']
+        name = request.form['sname']
+        cf = CadastrarFamilia(name, members, name)
         cf.execute()
-        return render_template("/family")
+        return render_template("Family/index.html")
     if request.method == 'GET':
         return render_template("Family/addFamily.html")
     
