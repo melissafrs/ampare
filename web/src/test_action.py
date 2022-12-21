@@ -3,6 +3,7 @@ from alimento import Alimento
 from familia import Familia
 from entrega import Entrega
 from datetime import date
+from cadastrarFamilia import CadastrarFamilia
 
 app = Flask(__name__)
 
@@ -15,10 +16,11 @@ def home():
 def food():
     return render_template("Food/index.html")
 
-@app.route("/family", methods=['GET', 'POST'])
+@app.route("/family", methods=['GET'])
 def family():
-    familias = Familia.loadAllEntities()
-    return render_template("Family/index.html", familias=familias)
+    if request.method == 'GET':
+        familias = Familia.loadAllEntities()
+        return render_template("Family/index.html", familias=familias)
 
 @app.route("/family-details-<id>")
 def familyDetails(id):
@@ -32,6 +34,10 @@ def addFamily():
         name = request.form['fname']
         nmembers = request.form['nmembers']
         sname = request.form['sname']
+        cf = CadastrarFamilia(name, nmembers, sname)
+        cf.execute()
+        return render_template("/family")
+    if request.method == 'GET':
         return render_template("Family/addFamily.html")
     
 @app.route("/add-food")
