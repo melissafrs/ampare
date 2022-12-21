@@ -67,7 +67,21 @@ def addFamily():
         return render_template("Family/index.html")
     if request.method == 'GET':
         return render_template("Family/addFamily.html")
-    
+
+@app.route("/update-family/<id>", methods=['GET', 'POST'])
+def updateFamily(id):
+    familia = Familia.loadFromId(id)
+    if request.method == 'POST':
+        familia.nome = request.form['fname']
+        familia.tamanho = request.form['nmembers']
+        familia.endereco = request.form['sname']
+        
+
+        return render_template("Family/index.html")
+    if request.method == 'GET':
+        return render_template("Family/updateFamily.html", familia = familia)
+
+
 @app.route("/add-food")
 def addFood():
     return render_template("Food/addFood.html")

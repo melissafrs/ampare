@@ -1,16 +1,6 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Family/style/style.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
+{% extends './base.html' %}
 
-    <title>Detalhes</title>
-</head>
-<body>
+{% block conteudo%}
     <div class="container">
         <header>
             <div class="main-header">
@@ -56,9 +46,8 @@
                 </div>
             </div>
 
+            <a href="/update-family/{{familia.id}}">Atualizar</a>
         </main>
         <footer></footer>
     </div>
-    
-</body>
-</html>
+{% endblock %}
