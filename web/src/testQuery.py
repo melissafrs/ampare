@@ -1,10 +1,9 @@
 from alimento import Alimento
 import pyodbc
-from alimentoMutation import AlimentoMutation
+from entrega import Entrega
+from datetime import date
 
-tenta = AlimentoMutation().register('1', '12/12/2023')
-
-todos = Alimento.loadAllEntities()
+todos = Entrega.loadAllEntitiesForDate(date.today())
 
 print(todos)
 

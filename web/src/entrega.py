@@ -39,3 +39,13 @@ class Entrega(Entity):
             raise Exception("Não conseguiu carregar entregas para familia {id}")
         
         return rows
+    
+    @staticmethod
+    def loadAllEntitiesSinceDate(date):
+        query = f"""SELECT * FROM Entrega WHERE data >= '{date}'"""
+        print(query)
+        rows = DBConnection().executeQuery(query).fetchall()
+        if not rows:
+            raise Exception("Não conseguiu carregar entregas para data {date}")
+        
+        return rows
