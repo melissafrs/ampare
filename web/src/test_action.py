@@ -69,10 +69,7 @@ def familyDetails(id):
 @app.route("/add-family", methods=['GET', 'POST'])
 def addFamily():
     if request.method == 'POST':
-        name = request.form['fname']
-        members = request.form['nmembers']
-        name = request.form['sname']
-        cf = CadastrarFamilia(name, members, name)
+        cf = CadastrarFamilia(request.form['nome'], request.form['membros'], request.form['endereco'])
         cf.execute()
         return render_template("Family/index.html")
     if request.method == 'GET':
