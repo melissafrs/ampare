@@ -18,13 +18,18 @@ def home():
 
 @app.route("/delivery/<id>")
 def deliveryDetails(id):
+    delivery = cesta = action = []
     try:
         delivery = Entrega.loadFromId(id)
         cesta = Cesta.loadFromEntregaId(id)
         action = CestaAction.loadDataForId(cesta.id)
     except:
         pass
-    return render_template("Delivery/index.html", entrega = delivery, cesta = action)
+    return render_template("Delivery/index.html", entrega = delivery, cesta = action, status = cesta)
+
+@app.route("/deliveryCesta-<id>")
+def deliveryCesta(id):
+    return "delivery {id}"
 
 @app.route("/food")
 def food():
