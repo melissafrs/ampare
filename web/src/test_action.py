@@ -9,6 +9,7 @@ from datetime import date
 from cadastrarFamilia import CadastrarFamilia
 from entregarCesta import EntregarCesta
 from deletarFamilia import DeletarFamilia
+from atualizarFamilia import AtualizarFamilia
 
 app = Flask(__name__)
 
@@ -79,16 +80,12 @@ def addFamily():
 
 @app.route("/update-family/<id>", methods=['GET', 'POST'])
 def updateFamily(id):
-    familia = Familia.loadFromId(id)
     if request.method == 'POST':
-        familia.nome = request.form['fname']
-        familia.tamanho = request.form['nmembers']
-        familia.endereco = request.form['sname']
-        
-
+        command = AtualizarFamilia(id, request.form['fname'], request.form['nmembers'],request.form['sname'])
+        command.execute()     
         return render_template("Family/index.html")
     if request.method == 'GET':
-        return render_template("Family/updateFamily.html", familia = familia)
+        return render_template("Family/updateFamily.html", id = id)
 
 @app.route("/delete-family/<id>")
 def deleteFamily(id):
