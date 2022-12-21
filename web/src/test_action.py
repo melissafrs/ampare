@@ -7,6 +7,7 @@ from entrega import Entrega
 from entregasAction import EntregasAction
 from datetime import date
 from cadastrarFamilia import CadastrarFamilia
+from entregarCesta import EntregarCesta
 
 app = Flask(__name__)
 
@@ -29,7 +30,9 @@ def deliveryDetails(id):
 
 @app.route("/deliveryCesta-<id>")
 def deliveryCesta(id):
-    return "delivery {id}"
+    command = EntregarCesta(id)
+    command.execute()
+    return deliveryDetails(id)
 
 @app.route("/food")
 def food():

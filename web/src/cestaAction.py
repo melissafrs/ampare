@@ -7,11 +7,12 @@ from datetime import date, time
 
 class CestaAction:
 
-    def __init__(self, id, data = 0, name = 0, peso = 0):
+    def __init__(self, id, data = 0, name = 0, peso = 0, status = 0):
         self.id = id
         self.data = data
         self.name = name
         self.peso = peso
+        self.status = status
     
     @staticmethod
     def loadData():
@@ -48,7 +49,7 @@ class CestaAction:
             data = CestaAction.getDateFormatted(entrega.data)
         except:
             pass
-        return CestaAction(cesta.id, data, name, peso)
+        return CestaAction(cesta.id, data, name, peso, cesta.status)
 
     @staticmethod
     def calculatePeso(alimentos):
