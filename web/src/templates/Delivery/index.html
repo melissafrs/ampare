@@ -4,8 +4,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../Commons/style.css">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Delivery/style/style.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
 
@@ -15,8 +15,8 @@
     <div class="container">
         <header>
             <div class="main-header">
-                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='../Dashboard/index.html'"></i>
-                <img class="logo" src="../img/white-logo.png" alt="logo" onclick="window.location='../Dashboard/index.html'">
+                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='/'"></i>
+                <img class="logo" src="{{ url_for('static', filename='img/white-logo.png') }}" alt="logo" onclick="window.location='/'">
             </div>
         </header>
         <main>
@@ -24,48 +24,26 @@
                 <div class="info">
                     <h1>Entrega</h1>
                     <div class="details">
-                        <p>família: Santos</p>
-                        <p>data: 25/11/22 10:40</p>
-                        <p>rua dos alfeneiros, 4</p>
+                        <p>família {{cesta.name}}</p>
+                        <p>data de entrega: {{cesta.data}}</p>
+                        <p>{{entrega.endereco}}</p>
                     </div>
                 </div>
-                <img class="logo" src="../img/familia.png" alt="cesta">
+                <img class="logo" src="{{ url_for('static', filename='img/familia.png') }}" alt="cesta">
             </div>
             <div class="card cesta-list">
-                <h1>Cestas</h1>
+                <h1>Cesta</h1>
                 <ol class="list">
-                    <li class="cesta card" onclick="window.location='../Food/details.html'">
+                    <li class="cesta card" onclick="window.location.href='/food/{{cesta.id}}';">
                         <div class="info">
-                            <h1>#001</h1>
+                            <h1>#{{cesta.id}}</h1>
                             <div class="details">
-                                <p>família Santos</p>
-                                <p>data de entrega: 25/11/22</p>
-                                <p>peso: 15kg</p>
+                                <p>data validade: {{cesta.data}}</p>
+                                <p>{{entrega.endereco}}</p>
+                                <p>peso: {{cesta.peso}}</p>
                             </div>
                         </div>
-                        <img class="logo" src="../img/cesta.png" alt="cesta">
-                    </li>
-                    <li class="cesta card" onclick="window.location='../Food/details.html'">
-                        <div class="info">
-                            <h1>#002</h1>
-                            <div class="details">
-                                <p>família Palmeiras</p>
-                                <p>data de entrega: 25/11/22</p>
-                                <p>peso: 15kg</p>
-                            </div>
-                        </div>
-                        <img class="logo" src="../img/cesta.png" alt="cesta">
-                    </li>
-                    <li class="cesta card" onclick="window.location='../Food/details.html'">
-                        <div class="info">
-                            <h1>#003</h1>
-                            <div class="details">
-                                <p>família Moraes</p>
-                                <p>data de entrega: 25/11/22</p>
-                                <p>peso: 15kg</p>
-                            </div>
-                        </div>
-                        <img class="logo" src="../img/cesta.png" alt="cesta">
+                        <img class="logo" src="{{ url_for('static', filename='/img/cesta.png')}}" alt="cesta">
                     </li>
                 </ol>
                 <div class="button" style="margin-left: 37.5%; margin-top:12px" onclick="window.print()">
@@ -78,7 +56,7 @@
                     <h1>Local</h1>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3604.6097222339836!2d-49.2478313!3d-25.3843934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce68b5003edfb%3A0xd6185213ac755907!2sRua%20dos%20Alfeneiros%2C%204%20-%20Boa%20Vista%2C%20Curitiba%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1667958715072!5m2!1spt-BR!2sbr" max-width="500" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="details">
-                        <p>rua dos alfeneiros, número 4 curitiba - pr 80230123</p>
+                        <p>{{entrega.endereco}}</p>
                     </div>
                 </div>
             </div>

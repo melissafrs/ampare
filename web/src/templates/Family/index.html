@@ -11,7 +11,7 @@
         <main>
             <ol class="list">
                 {% for familia in familias %}
-                    <li class="card" onclick="window.location='/family-details'">
+                    <li class="card" onclick="window.location.href='/family/{{familia.id}}';">
                         <div class="info">
                             <h1>#00{{familia.id}}</h1>
                             <div class="details">

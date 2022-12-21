@@ -29,7 +29,7 @@
 
             <div class="alerts-container">
                 {% for alert in alerts_entregas %}
-                    <div class="alert" onclick="window.location='../Delivery/index.html';">
+                    <div class="alert" onclick="window.location.href='/delivery/{{alert.id}}';">
                         <div class="date-alert-container">
                             <div class="date-alert">
                                 <h1>{{alert.data}}</h1>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="info-alert">
                             <h2>{{alert.details}}</h2>
-                            <p>cesta {{alert.cesta_id}}</p>
+                            <p>cesta {{alert.extra_id}}</p>
                         </div>
                     </div>
                 {% endfor %}

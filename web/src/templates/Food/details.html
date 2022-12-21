@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../Commons/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Food/style/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Commons/style.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
 
@@ -14,21 +14,21 @@
     <div class="container">
         <header>
             <div class="main-header">
-                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='./index.html'"></i>
-                <img class="logo" src="../img/white-logo.png" alt="logo" onclick="window.location='../Dashboard/index.html'">
+                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='/food'"></i>
+                <img class="logo" src="{{ url_for('static', filename='img/white-logo.png') }}" alt="logo" onclick="window.location='/'">
             </div>
         </header>
         <main>
             <div class="card">
                 <div class="info">
-                    <h1>#001</h1>
+                    <h1>#{{cesta.id}}</h1>
                     <div class="details">
-                        <p>família Santos</p>
-                        <p>data de entrega: 25/10/22</p>
-                        <p>peso: 15kg</p>
+                        <p>família {{cesta.name}}</p>
+                        <p>data de entrega: {{cesta.data}}</p>
+                        <p>peso: {{cesta.peso}}</p>
                     </div>
                 </div>
-                <img class="logo" src="../img/cesta.png" alt="cesta">
+                <img class="logo" src="{{ url_for('static', filename='img/cesta.png') }}" alt="cesta">
             </div>
             <div class="card table">
                 <div class="details-table">
@@ -42,84 +42,14 @@
                                 <th>validade</th>
                             </tr>
                         </thead>
-                        <tr>
-                            <td>carne</td>
-                            <td>001</td>
-                            <td>1</td>
-                            <td>30/12/2022</td>
-                        </tr>
-                        <tr>
-                            <td>leite</td>
-                            <td>002</td>
-                            <td>1</td>
-                            <td>30/12/2022</td>
-                        </tr>
-                        <tr>
-                            <td>feijão</td>
-                            <td>003</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>arroz</td>
-                            <td>004</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>batata</td>
-                            <td>020</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>batata</td>
-                            <td>020</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>batata</td>
-                            <td>020</td>
-                            <td>1</td>
-                            <td>30/12/2022</td>
-                        </tr>
-                        <tr>
-                            <td>tomate</td>
-                            <td>024</td>
-                            <td>1</td>
-                            <td>30/12/2022</td>
-                        </tr>
-                        <tr>
-                            <td>café</td>
-                            <td>031</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>trigo</td>
-                            <td>015</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>margarina</td>
-                            <td>021</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>leite em pó</td>
-                            <td>017</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
-                        <tr>
-                            <td>açúcar</td>
-                            <td>007</td>
-                            <td>1</td>
-                            <td>30/12/2023</td>
-                        </tr>
+                        {% for detail in details %}
+                            <tr>
+                                <td>{{detail.id}}</td>
+                                <td>{{detail.name}}</td>
+                                <td>{{detail.peso}}</td>
+                                <td>{{detail.data}}</td>
+                            </tr>
+                        {% endfor %}
                     </table>
                     <div class="button" style="margin-left: 37.5%;" onclick="window.print()">
                         <i class="fa-solid fa-print fa-lg icon"></i>

@@ -11,11 +11,11 @@
         <main>
             <ol class="list" id="foodList">
                 {% for cesta in cestas %}
-                    <li class="card" onclick="window.location='#'">
+                    <li class="card" onclick="window.location.href='/food/{{cesta.id}}';">
                         <div class="info">
                             <h1>#{{cesta.id}}</h1>
                             <div class="details">
-                                <p>família {{cesta.family}}</p>
+                                <p>família {{cesta.name}}</p>
                                 <p>data de entrega: {{cesta.data}}</p>
                                 <p>peso: {{cesta.peso}}</p>
                             </div>
