@@ -8,6 +8,7 @@ from entregasAction import EntregasAction
 from datetime import date
 from cadastrarFamilia import CadastrarFamilia
 from entregarCesta import EntregarCesta
+from deletarFamilia import DeletarFamilia
 
 app = Flask(__name__)
 
@@ -88,6 +89,12 @@ def updateFamily(id):
         return render_template("Family/index.html")
     if request.method == 'GET':
         return render_template("Family/updateFamily.html", familia = familia)
+
+@app.route("/delete-family/<id>")
+def deleteFamily(id):
+    command = DeletarFamilia(id)
+    command.execute()
+    return home()
 
 
 @app.route("/add-food")

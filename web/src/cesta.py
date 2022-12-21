@@ -28,6 +28,11 @@ class Cesta(Entity):
         return Cesta(row.id, row.id_familia, row.status, row.entrega_id)
 
     @staticmethod
+    def loadNotENForFamilia(id):
+        query = f"""SELECT * FROM Cesta WHERE id_familia ={id} AND status != 'EN' """
+        return DBConnection().executeQuery(query).fetchall()       
+
+    @staticmethod
     def loadAllEntities():
         query = f"""SELECT * FROM Cesta"""
         rows = DBConnection().executeQuery(query).fetchall()

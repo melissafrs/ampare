@@ -42,18 +42,10 @@ class Entrega(Entity):
     @staticmethod
     def loadAllEntitiesForFamily(id):
         query = f"""SELECT * FROM Entrega WHERE id_familia = {id}"""
-        rows = DBConnection().executeQuery(query).fetchall()
-        if not rows:
-            raise Exception("Não conseguiu carregar entregas para familia {id}")
-        
-        return rows
+        return DBConnection().executeQuery(query).fetchall()
     
     @staticmethod
     def loadAllEntitiesSinceDate(date):
         query = f"""SELECT * FROM Entrega WHERE data >= '{date}' ORDER BY data"""
         print(query)
-        rows = DBConnection().executeQuery(query).fetchall()
-        if not rows:
-            raise Exception("Não conseguiu carregar entregas para data {date}")
-        
-        return rows
+        return DBConnection().executeQuery(query).fetchall()
