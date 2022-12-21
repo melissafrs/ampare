@@ -18,6 +18,14 @@ class Cesta(Entity):
         if not row:
             raise Exception("Cesta com id "+ id + " não está cadastrada.")
         return Cesta(row.id, row.id_familia, row.status, row.entrega_id)
+    
+    @staticmethod
+    def loadFromEntregaId(id):
+        query = f"""SELECT * FROM Cesta WHERE entrega_id = {id}"""
+        row = DBConnection().executeQuery(query).fetchone()
+        if not row:
+            raise Exception("Cesta com entrega id "+ id + " não está cadastrada.")
+        return Cesta(row.id, row.id_familia, row.status, row.entrega_id)
 
     @staticmethod
     def loadAllEntities():

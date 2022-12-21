@@ -7,10 +7,10 @@ from datetime import date, time
 
 class CestaAction:
 
-    def __init__(self, id, data = 0, family = 0, peso = 0):
+    def __init__(self, id, data = 0, name = 0, peso = 0):
         self.id = id
         self.data = data
-        self.family = family
+        self.name = name
         self.peso = peso
     
     @staticmethod
@@ -18,25 +18,45 @@ class CestaAction:
         cestas = Cesta.loadAllEntities()
         cdata = []
         for cesta in cestas:
-            try:
-                family = Familia.loadFromId(cesta.id_familia)
-                peso = CestaAction.calculatePeso(Alimento.loadAllEntitiesForCesta(cesta.id))
-                entrega = Entrega.loadFromCestaId(cesta.id)
-                data = CestaAction.getDateFormatted(entrega.data)
-                action = CestaAction(cesta.id, data, family.nome, peso)
-            except (Exception) as e:
-                action = CestaAction(cesta.id, data, family.nome, peso)
-
+            action = CestaAction.loadInfo(cesta)
             cdata.append(action)
         
         return cdata
+    
+    @staticmethod
+    def loadDataForId(id):
+        cesta = Cesta.loadFromId(id)
+        return CestaAction.loadInfo(cesta)
+
+    @staticmethod
+    def loadDetailsForCesta(id):
+        alimentos = Alimento.loadAllEntitiesForCesta(id)
+        details = []
+        for alimento in alimentos:
+            tipo = TipoAlimento.loadFromId(alimento.tipo_alimento_id)
+            cesta_action = CestaAction(alimento.id, alimento.data_validade, tipo.nome, tipo.peso)
+            details.append(cesta_action)
+        return details
+
+    @staticmethod
+    def loadInfo(cesta):
+        name = peso = data = ''
+        try:
+            name = Familia.loadFromId(cesta.id_familia).nome
+            peso = CestaAction.calculatePeso(Alimento.loadAllEntitiesForCesta(cesta.id))
+            entrega = Entrega.loadFromCestaId(cesta.id)
+            data = CestaAction.getDateFormatted(entrega.data)
+        except:
+            pass
+        return CestaAction(cesta.id, data, name, peso)
 
     @staticmethod
     def calculatePeso(alimentos):
-        peso = 0.0
+        peso = 0
         for alimento in alimentos:
             tipo = TipoAlimento.loadFromId(alimento.tipo_alimento_id)
-            peso = tipo.peso + peso
+            peso = peso + tipo.peso
+        return peso
 
     @staticmethod
     def getDateFormatted(input):

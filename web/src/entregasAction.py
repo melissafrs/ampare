@@ -1,9 +1,10 @@
 from entrega import Entrega
 from datetime import date, time
 
-class Alerts:
+class EntregasAction:
 
-    def __init__(self, data, type):
+    def __init__(self, id, data, type):
+        self.id = id
         self.data = data
         self.type = type
     
@@ -12,9 +13,9 @@ class Alerts:
         ealerts = Entrega.loadAllEntitiesSinceDate(date)
         alers = []
         for ealert in ealerts:
-            data = Alerts.getDateFormatted(ealert.data)
-            alert = Alerts(data, 'entrega')
-            alert.time = Alerts.getTimeFormatted(ealert.hora)
+            data = EntregasAction.getDateFormatted(ealert.data)
+            alert = EntregasAction(ealert.id, data, 'entrega')
+            alert.time = EntregasAction.getTimeFormatted(ealert.hora)
             alert.details = ealert.endereco
             alert.extra_id = ealert.cesta_id
             alers.append(alert)
