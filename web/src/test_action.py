@@ -22,5 +22,13 @@ def familyDetails(id):
     familia = Familia.loadFromId(id)
     return render_template("Family/details.html", familia=familia)
 
+@app.route("/add-family")
+def newFamily():
+    return render_template("Family/addFamily.html")
+    
+@app.route("/add-food")
+def newFood():
+    return render_template("Food/addFood.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

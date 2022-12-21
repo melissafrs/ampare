@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Commons/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ba547cc965.js" crossorigin="anonymous"></script>
-    <title>Incluir Família</title>
-</head>
-<body>
+{% extends './base.html' %}
+
+{% block conteudo%}
     <div class="container">
         <header>
             <div class="main-header">
-                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='./index.html'"></i>
-                <img class="logo" src="../img/white-logo.png" alt="logo" onclick="window.location='../Dashboard/index.html'">
+                <i class="fa-solid fa-arrow-left-long fa-3x back-arrow" onclick="window.location='/family'"></i>
+                <img class="logo" src="{{ url_for('static', filename='img/white-logo.png')}}" alt="logo" onclick="window.location='/'">
             </div>
         </header>
         <main>
@@ -24,10 +15,9 @@
                 <div class="form-item"><label for="nmembers">Nº de membros: </label><input type="text" id="nmembers" name="nmembers" size="4"></div>
                 <div class="form-item"><label for="sname">Rua: </label><input type="text" id="sname" name="sname" size="50"></div>
                 <div class="form-item"><label for="snumber">Nº: </label><input type="text" id="snumber" name="snumber" size="4"></div>
-                <button class="form-button" style="margin:auto;"><h1>Incluir</h1></button>
+                <input class="form-button" style="margin:auto; color: #ffe400;" type="submit" value="Incluir">
             </form>
         </main>
         <footer></footer>
     </div>
-</body>
-</html>
+{% endblock %}
