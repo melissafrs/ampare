@@ -13,7 +13,7 @@ def home():
 def food():
     return render_template("Food/index.html")
 
-@app.route("/family")
+@app.route("/family", methods=['GET', 'POST'])
 def family():
     familias = Familia.loadAllEntities()
     return render_template("Family/index.html", familias=familias)
@@ -24,12 +24,16 @@ def familyDetails(id):
     entregas = Entrega.loadAllEntitiesForFamily(id)
     return render_template("Family/details.html", familia=familia, entregas=entregas)
 
-@app.route("/add-family")
-def newFamily():
-    return render_template("Family/addFamily.html")
+@app.route("/add-family", methods=['GET', 'POST'])
+def addFamily():
+    if request.method == 'POST':
+        name = request.form['fname']
+        nmembers = request.form['nmembers']
+        sname = request.form['sname']
+        return render_template("Family/addFamily.html")
     
 @app.route("/add-food")
-def newFood():
+def addFood():
     return render_template("Food/addFood.html")
 
 if __name__ == "__main__":

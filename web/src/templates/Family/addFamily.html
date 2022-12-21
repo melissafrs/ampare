@@ -9,13 +9,12 @@
             </div>
         </header>
         <main>
-            <form>
+            <form action="/family" method="post">
                 <h1>Incluir família</h1>
-                <div class="form-item"><label for="fname">Família: </label><input type="text" id="fname" name="fname"></div>
-                <div class="form-item"><label for="nmembers">Nº de membros: </label><input type="text" id="nmembers" name="nmembers" size="4"></div>
-                <div class="form-item"><label for="sname">Rua: </label><input type="text" id="sname" name="sname" size="50"></div>
-                <div class="form-item"><label for="snumber">Nº: </label><input type="text" id="snumber" name="snumber" size="4"></div>
-                <input class="form-button" style="margin:auto; color: #ffe400;" type="submit" value="Incluir">
+                <div class="form-item"><label for="fname">Família: </label><input type="text" id="fname" name="fname" required></div>
+                <div class="form-item"><label for="nmembers">Nº de membros: </label><input type="text" id="nmembers" name="nmembers" size="4" required></div>
+                <div class="form-item"><label for="sname">Endereço: </label><input type="text" id="sname" name="sname" size="50" required></div>
+                <button class="form-button" style="margin:auto" type="submit"><h1>Incluir</h1></button>
             </form>
         </main>
         <footer></footer>
