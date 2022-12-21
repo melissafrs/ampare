@@ -2,7 +2,7 @@ from familiaMutation import FamiliaMutation
 
 class CadastrarFamilia:
     def __init__(self, nome, tamanho,  endereco):
-        self.nome = nome
+        self.fields = nome
         self.tamanho = tamanho
         self.endereco = endereco
     

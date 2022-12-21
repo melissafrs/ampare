@@ -14,8 +14,8 @@ class FamiliaMutation:
         query = self.queryDelete(familia_id)
         self.execute(query)
 
-    def update(self, field, value):
-        query = self.queryUpdate(field, value)
+    def update(self, familia_id, field, value):
+        query = self.queryUpdate(familia_id, field, value)
         self.execute(query)
 
 
