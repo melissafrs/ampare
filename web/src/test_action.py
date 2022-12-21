@@ -2,13 +2,14 @@ from flask import Flask, redirect, url_for, render_template, request
 from alimento import Alimento
 from familia import Familia
 from entrega import Entrega
+from alerts import Alerts
 from datetime import date
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    alerts_entregas = Entrega.loadAllEntitiesForDate(date.today())
+    alerts_entregas = Alerts.loadEntregas(date.today())
     return render_template("Dashboard/index.html", alerts_entregas = alerts_entregas)
 
 @app.route("/food")

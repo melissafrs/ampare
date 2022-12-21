@@ -3,13 +3,13 @@ from datetime import date, time
 
 class Alerts:
 
-    def __init__(self, data, tipo):
+    def __init__(self, data, type):
         self.data = data
-        self.tipo = tipo
+        self.type = type
     
     @staticmethod
-    def loadEntregas():
-        ealerts = Entrega.loadAllEntitiesSinceDate(date.today())
+    def loadEntregas(date):
+        ealerts = Entrega.loadAllEntitiesSinceDate(date)
         alers = []
         for ealert in ealerts:
             data = Alerts.getDateFormatted(ealert.data)
@@ -24,12 +24,12 @@ class Alerts:
     @staticmethod
     def getDateFormatted(input):
         input = date.fromisoformat(input)
-        if (input == date.today):
+        if (input == date.today()):
             return 'hoje'
         
-        return input.day + '/' + input.month
+        return f"{input.day}/{input.month}"
     
     @staticmethod
     def getTimeFormatted(input):
         input = time.fromisoformat(input)
-        return input.hour + 'h' + input.minute
+        return f"{input.hour}h{input.minute}"

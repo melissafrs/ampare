@@ -42,7 +42,7 @@ class Entrega(Entity):
     
     @staticmethod
     def loadAllEntitiesSinceDate(date):
-        query = f"""SELECT * FROM Entrega WHERE data >= '{date}'"""
+        query = f"""SELECT * FROM Entrega WHERE data >= '{date}' ORDER BY data"""
         print(query)
         rows = DBConnection().executeQuery(query).fetchall()
         if not rows:
