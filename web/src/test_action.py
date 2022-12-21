@@ -1,6 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request
 from alimento import Alimento
 from familia import Familia
+from entrega import Entrega
 
 app = Flask(__name__)
 
@@ -20,7 +21,8 @@ def family():
 @app.route("/family-details-<id>")
 def familyDetails(id):
     familia = Familia.loadFromId(id)
-    return render_template("Family/details.html", familia=familia)
+    entregas = Entrega.loadAllEntitiesForFamily(id)
+    return render_template("Family/details.html", familia=familia, entregas=entregas)
 
 if __name__ == "__main__":
     app.run(debug=True)
