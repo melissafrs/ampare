@@ -6,6 +6,7 @@ from familia import Familia
 from entrega import Entrega
 from entregasAction import EntregasAction
 from datetime import date
+from cadastrarFamilia import CadastrarFamilia
 
 app = Flask(__name__)
 
@@ -61,6 +62,10 @@ def addFamily():
         name = request.form['fname']
         nmembers = request.form['nmembers']
         sname = request.form['sname']
+        cf = CadastrarFamilia(name, nmembers, sname)
+        cf.execute()
+        return render_template("/family")
+    if request.method == 'GET':
         return render_template("Family/addFamily.html")
     
 @app.route("/add-food")

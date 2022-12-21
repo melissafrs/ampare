@@ -3,8 +3,10 @@ import pyodbc
 from entrega import Entrega
 from alerts import Alerts
 from datetime import date
+from cadastrarFamilia import CadastrarFamilia
 
-todos = Alerts.loadEntregas(date.today())
+cf = CadastrarFamilia('mnome', 3, 'Rua Tal 142')
+todo = cf.execute()
 
 print(todos)
 
