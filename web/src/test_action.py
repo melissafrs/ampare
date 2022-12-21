@@ -1,7 +1,10 @@
 from flask import Flask, redirect, url_for, render_template, request
 from alimento import Alimento
+from cesta import Cesta
+from cestaAction import CestaAction
 from familia import Familia
 from entrega import Entrega
+from alerts import Alerts
 from datetime import date
 from cadastrarFamilia import CadastrarFamilia
 
@@ -9,24 +12,24 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    alerts_entregas = Entrega.loadAllEntitiesForDate(date.today())
+    alerts_entregas = Alerts.loadEntregas(date.today())
     return render_template("Dashboard/index.html", alerts_entregas = alerts_entregas)
 
 @app.route("/food")
 def food():
-    return render_template("Food/index.html")
+    cestas = CestaAction.loadData()
+    return render_template("Food/index.html", cestas = cestas)
 
 @app.route("/family", methods=['GET'])
 def family():
-    if request.method == 'GET':
-        familias = Familia.loadAllEntities()
-        return render_template("Family/index.html", familias=familias)
+    familias = Familia.loadAllEntities()
+    return render_template("Family/index.html", familias = familias)
 
 @app.route("/family-details-<id>")
 def familyDetails(id):
     familia = Familia.loadFromId(id)
     entregas = Entrega.loadAllEntitiesForFamily(id)
-    return render_template("Family/details.html", familia=familia, entregas=entregas)
+    return render_template("Family/details.html", familia = familia, entregas = entregas)
 
 @app.route("/add-family", methods=['GET', 'POST'])
 def addFamily():
