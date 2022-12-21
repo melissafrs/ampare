@@ -39,8 +39,7 @@
                             <h1>#{{cesta.id}}</h1>
                             <div class="details">
                                 <p>data validade: {{cesta.data}}</p>
-                                <p>{{entrega.endereco}}</p>
-                                <p>peso: {{cesta.peso}}</p>
+                                <p>status: {{status.status}}</p>
                             </div>
                         </div>
                         <img class="logo" src="{{ url_for('static', filename='/img/cesta.png')}}" alt="cesta">
@@ -65,10 +64,12 @@
                     <i class="fa-solid fa-clock fa-lg icon"></i>
                     <h1>lembrete</h1>
                 </div>
-                <div class="check button" onclick="">
-                    <i class="fa-solid fa-check fa-lg icon"></i>
-                    <h1>entregue</h1>
-                </div>
+                {% if status.status == 'CO' %}
+                    <div class="check button" onclick="window.location.href='/deliveryCesta-{{cesta.id}}';">
+                        <i class="fa-solid fa-check fa-lg icon"></i>
+                        <h1>entregue</h1>
+                    </div>
+                {% endif %}
             </div>
         </main>
         <footer></footer>

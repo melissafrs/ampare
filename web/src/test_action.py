@@ -7,6 +7,7 @@ from entrega import Entrega
 from entregasAction import EntregasAction
 from datetime import date
 from cadastrarFamilia import CadastrarFamilia
+from entregarCesta import EntregarCesta
 
 app = Flask(__name__)
 
@@ -18,13 +19,20 @@ def home():
 
 @app.route("/delivery/<id>")
 def deliveryDetails(id):
+    delivery = cesta = action = []
     try:
         delivery = Entrega.loadFromId(id)
         cesta = Cesta.loadFromEntregaId(id)
         action = CestaAction.loadDataForId(cesta.id)
     except:
         pass
-    return render_template("Delivery/index.html", entrega = delivery, cesta = action)
+    return render_template("Delivery/index.html", entrega = delivery, cesta = action, status = cesta)
+
+@app.route("/deliveryCesta-<id>")
+def deliveryCesta(id):
+    command = EntregarCesta(id)
+    command.execute()
+    return deliveryDetails(id)
 
 @app.route("/food")
 def food():

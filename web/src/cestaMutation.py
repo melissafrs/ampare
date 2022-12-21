@@ -17,6 +17,12 @@ class CestaMutation:
         familia = Familia.loadFromId(familia_id)
         query = self.queryUpdate(cesta_id, 'familia_id', familia_id)
         self.execute(query)
+    
+    
+    def setStatus(self, cesta_id, new_status):
+        query = self.queryUpdate(cesta_id, 'status', new_status)
+        self.execute(query)
+
 
     def execute(self, query):
         rows_affected = self.connection.executeQuery(query)
@@ -32,7 +38,7 @@ class CestaMutation:
         return f"""DELETE FROM Cesta WHERE id = {cesta_id}"""
 
     def queryUpdate(self, cesta_id, field_name, data):
-        return f"""UPDATE Alimento SET {field_name} = '{data}' WHERE id = {cesta_id}"""
+        return f"""UPDATE Cesta SET {field_name} = '{data}' WHERE id = {cesta_id}"""
 
     def persist(self, query, rows_affected):
         if rows_affected.rowcount != 1:
